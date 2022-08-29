@@ -34,7 +34,7 @@ function showOutput() {
   } else if (chosenOption === "findLengthFirstName") {
     // **DONE
     console.log(`chosenOption is ${chosenOption}`);
-    outputField.value = inputField.value + " is " + inputField.value.length + " characters long";
+    outputField.value = inputField.value.split(` `)[0] + " is " + inputField.value.split(` `)[0].length + " characters long";
   } else if (chosenOption === "findMiddleName") {
     //**DONE
     let indexOfFirst = inputField.value.indexOf(` `);
