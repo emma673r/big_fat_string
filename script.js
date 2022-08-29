@@ -32,7 +32,7 @@ function showOutput() {
     //** DONE
     outputField.value = inputField.value.split(` `)[0];
   } else if (chosenOption === "findLengthFirstName") {
-    // **DONE
+    // **DONE-dy done
     console.log(`chosenOption is ${chosenOption}`);
     outputField.value = inputField.value.split(` `)[0] + " is " + inputField.value.split(` `)[0].length + " characters long";
   } else if (chosenOption === "findMiddleName") {
