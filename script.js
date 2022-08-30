@@ -27,7 +27,7 @@ function showOutput() {
   if (chosenOption === "firstLetterUppercase") {
     // **DONE
     console.log(`chosenOption is ${chosenOption}`);
-    outputField.value = inputField.value[0].toUpperCase() + inputField.value.substring(1);
+    outputField.value = inputField.value[0].toUpperCase() + inputField.value.substring(1).toLowerCase();
   } else if (chosenOption === "findFirstName") {
     //** DONE
     outputField.value = inputField.value.split(` `)[0];
@@ -63,18 +63,34 @@ function showOutput() {
     outputField.value = thirdLetterCapital;
   } else if (chosenOption === "capitalize") {
     //**DONE
-    outputField.value = "";
 
-    let newArray;
-    newArray = inputField.value.split(` `);
+    // // 1 method only works for either spaces or hyphens (just change value of split)
+    // outputField.value = "";
 
-    newArray.forEach((word) => {
-      let capWord;
-      capWord = word[0].toUpperCase() + word.substring(1);
-    //   console.log(`word[0].toUpperCase() + word.substring(1) is ${word[0].toUpperCase() + word.substring(1)}`);
-      outputField.value += `${capWord} `;
-    //   console.log(capWord);
-    });
+    // let newArray;
+    // newArray = inputField.value.split(` `);
+
+    // newArray.forEach((word) => {
+    //   let capWord;
+    //   capWord = word[0].toUpperCase() + word.substring(1);
+    //   //   console.log(`word[0].toUpperCase() + word.substring(1) is ${word[0].toUpperCase() + word.substring(1)}`);
+    //   outputField.value += `${capWord} `;
+    //   //   console.log(capWord);
+    // });
+
+    // 2 method - peters method
+    let previousChar;
+    let currentChar;
+    outputField.value = inputField.value.substring(0, 1).toUpperCase();
+    for (let i = 1; i < inputField.value.length; i++) {
+      previousChar = inputField.value[i - 1];
+      if (previousChar === " " || previousChar === "-") {
+        currentChar = inputField.value[i].toUpperCase();
+      } else {
+        currentChar = inputField.value[i];
+      }
+      outputField.value += currentChar;
+    }
   } else {
     // if youre really good (or bad) and break the game
     outputField.value = "error, chose an option";
