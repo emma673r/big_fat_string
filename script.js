@@ -81,7 +81,11 @@ function showOutput() {
     // 2 method - peters method
     let previousChar;
     let currentChar;
-    outputField.value = inputField.value.substring(0, 1).toUpperCase();
+
+    outputField.value = inputField.value[0].toUpperCase();
+
+    // didn't know the - for - method
+
     for (let i = 1; i < inputField.value.length; i++) {
       previousChar = inputField.value[i - 1];
       if (previousChar === " " || previousChar === "-") {
@@ -91,6 +95,7 @@ function showOutput() {
       }
       outputField.value += currentChar;
     }
+
   } else {
     // if youre really good (or bad) and break the game
     outputField.value = "error, chose an option";
